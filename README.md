@@ -14,8 +14,8 @@ import (
 
 func main() {
 	handler := nue.New()
-	handler.Add("/user", "/hello", func(r http.ResponseWriter, r *http.Request) {
-		r.Write([]byte("hello world"))
+	handler.Add("/user", "/hello", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("hello world"))
 	})
 	http.ListenAndServe(":8080", handler)
 }
