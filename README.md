@@ -1,6 +1,9 @@
 # Nue
 Fast router.
 
+
+[![wercker status](https://app.wercker.com/status/6135ebbc86ffbe8fc6b370f18241bbea/m "wercker status")](https://app.wercker.com/project/bykey/6135ebbc86ffbe8fc6b370f18241bbea)
+
 ## usage
 
 ```go
