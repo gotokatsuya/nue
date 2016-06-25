@@ -1,0 +1,36 @@
+box: google/golang
+
+# Build definition
+build:
+  # The steps that will be executed on build
+  steps:
+
+    # Sets the go workspace and places you package
+    # at the right place in the workspace tree
+    - setup-go-workspace
+
+    # goget
+    - script:
+        name: go get
+        code: |
+          cd $WERCKER_SOURCE_DIR
+          go get -d ./...
+          go get -d github.com/naoina/denco
+          go get -d github.com/julienschmidt/httprouter
+          go get -d github.com/gorilla/mux
+          go get -d github.com/stretchr/testify
+          go get -u github.com/golang/lint/golint
+
+    # build the package
+    - script:
+        name: go build
+        code: |
+          go build ./...
+
+    # test the package
+    - script:
+        name: go test
+        code: |
+          make vet
+          go test -v ./...
+
