@@ -1,10 +1,21 @@
-# Nue
-Fast router.
+# Nue - 鵺
+
+Nue is a lightweight high performance HTTP request router for Golang.
 
 
-[![wercker status](https://app.wercker.com/status/6135ebbc86ffbe8fc6b370f18241bbea/m "wercker status")](https://app.wercker.com/project/bykey/6135ebbc86ffbe8fc6b370f18241bbea)
+## Build status
 
-## usage
+[![wercker status](https://app.wercker.com/status/6135ebbc86ffbe8fc6b370f18241bbea/s/master "wercker status")](https://app.wercker.com/project/bykey/6135ebbc86ffbe8fc6b370f18241bbea)
+
+
+## Installation
+
+```bash
+$ go get github.com/gotokatsuya/nue
+```
+
+
+## Usage
 
 ```go
 package main
