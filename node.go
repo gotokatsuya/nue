@@ -10,28 +10,22 @@ const (
 
 type Node struct {
 	kind       int
-	key        string
 	value      *Route
-	childNodes []*Node
+	childNodes map[string]*Node
 }
 
 func (n *Node) addChildNode(key string, value *Route, kind int) *Node {
 	childNode := &Node{
-		kind:  kind,
-		key:   key,
-		value: value,
+		kind:       kind,
+		value:      value,
+		childNodes: make(map[string]*Node),
 	}
-	n.childNodes = append(n.childNodes, childNode)
+	n.childNodes[key] = childNode
 	return childNode
 }
 
 func (n *Node) getChildNode(key string) *Node {
-	for _, node := range n.childNodes {
-		if node.key == key {
-			return node
-		}
-	}
-	return nil
+	return n.childNodes[key]
 }
 
 func (n *Node) insertRoute(key string, value *Route) error {

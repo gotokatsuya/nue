@@ -18,7 +18,7 @@ func NewRouter() *Router {
 func (r *Router) addRoute(prefix, path string, h func(http.ResponseWriter, *http.Request)) error {
 	node := r.nodes[prefix]
 	if node == nil {
-		r.nodes[prefix] = &Node{kind: nodeKindRoot}
+		r.nodes[prefix] = &Node{kind: nodeKindRoot, childNodes: make(map[string]*Node)}
 	}
 	return r.nodes[prefix].insertRoute(path, &Route{path: path, handler: h})
 }

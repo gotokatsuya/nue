@@ -32,8 +32,8 @@ func (n *Nue) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func (n *Nue) ShowNodes() {
 	for key, node := range n.nodes {
 		fmt.Printf("Group: %s\n", key)
-		for _, child := range node.childNodes {
-			fmt.Printf("Node: %s\n", child.key)
+		for key, _ := range node.childNodes {
+			fmt.Printf("Node: %s\n", key)
 		}
 	}
 }

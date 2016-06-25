@@ -19,5 +19,10 @@ vet:
 test:
 	@go test $(NUE_ONLY_PKGS)
 
+bench:
+	@go test -bench . 
+
+run-sample:
+	@go run sample/main.go 
 
 .PHONY: all unit lint vet test
