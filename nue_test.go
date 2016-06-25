@@ -8,10 +8,10 @@ import (
 
 func TestNue(t *testing.T) {
 	nue := New()
-	nue.Add("/hello", "/test", func(rw http.ResponseWriter, r *http.Request) {
+	nue.AddHandler("/hello", "/test", func(rw http.ResponseWriter, r *http.Request) {
 		rw.Write([]byte("hello world"))
 	})
-	nue.Add("/hello", "/test1", func(rw http.ResponseWriter, r *http.Request) {
+	nue.AddHandler("/hello", "/test1", func(rw http.ResponseWriter, r *http.Request) {
 		rw.Write([]byte("hello world1"))
 	})
 	nue.ShowNodes()

@@ -17,7 +17,7 @@ func New() *Nue {
 	}
 }
 
-func (n *Nue) Add(prefix, pattern string, h func(http.ResponseWriter, *http.Request)) error {
+func (n *Nue) AddHandler(prefix, pattern string, h func(http.ResponseWriter, *http.Request)) error {
 	return n.addRoute(prefix, pattern, h)
 }
 

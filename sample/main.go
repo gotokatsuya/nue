@@ -8,7 +8,7 @@ import (
 
 func main() {
 	handler := nue.New()
-	handler.Add("/hello", "/world", func(rw http.ResponseWriter, r *http.Request) {
+	handler.AddHandler("/hello", "/world", func(rw http.ResponseWriter, r *http.Request) {
 		rw.Write([]byte("hello world"))
 	})
 	handler.AddNotFoundHandler(func(rw http.ResponseWriter, r *http.Request) {
