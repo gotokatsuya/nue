@@ -8,15 +8,12 @@ import (
 
 func TestNue(t *testing.T) {
 	nue := New()
-	nue.AddHandler("/hello", "/test", func(rw http.ResponseWriter, r *http.Request) {
+	nue.AddHandler("/foo", "/bar/baz", func(rw http.ResponseWriter, r *http.Request) {
 		rw.Write([]byte("hello world"))
-	})
-	nue.AddHandler("/hello", "/test1", func(rw http.ResponseWriter, r *http.Request) {
-		rw.Write([]byte("hello world1"))
 	})
 	nue.ShowNodes()
 
-	req, err := http.NewRequest("GET", "/hello/test", nil)
+	req, err := http.NewRequest("GET", "/foo/bar/baz", nil)
 	if err != nil {
 		t.Fatalf("NewReuqest err:%v", err)
 	}
